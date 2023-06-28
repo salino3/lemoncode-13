@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MemberEntity } from './model/member-entity';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,11 @@ export class AppComponent {
   title = 'lemoncode-13';
 
   labelText: string = 'Search: ';
-  
+
+  members: MemberEntity[] = [];
+
+
+
   muestraAlert(name: string) {
     alert('El nombre es: ' + name);
   }

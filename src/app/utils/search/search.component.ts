@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { MemberEntity } from 'src/app/model/member-entity';
+import { MembersService } from 'src/app/services/members.service';
 
 @Component({
   selector: 'app-search',
@@ -13,10 +15,14 @@ export class SearchComponent implements OnInit {
   @Output() clickEnLupa: EventEmitter<string> = new EventEmitter();
   //  @Output() myEvent = new EventEmitter();
 
-  constructor() {
+  members: MemberEntity[] = [];
+
+  constructor(service: MembersService) {
     // setTimeout(() => {
     //   this.name = 'Maria';
     // }, 3000);
+
+    service.getAll().then((membersResponse) => this.members = membersResponse);
   }
 
   ngOnInit(): void {}
