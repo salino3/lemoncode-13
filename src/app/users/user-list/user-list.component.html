@@ -1,3 +1,44 @@
+
+
+<h2>Alta</h2>
+ <div class="newMember">{{newMember | json}}</div>
+<div>
+   <form #addForm="ngForm"  >
+    <div>
+        <label>Id </label>
+        <input name="id" [(ngModel)]="newMember.id" required #id="ngModel" />
+         <br>
+        <div *ngIf="id.invalid && id.touched">
+          El id es obligatorio
+        </div>
+    </div>
+    <div>
+        <label>Name </label>
+        <input name="name"  [(ngModel)]="newMember.login" required minlength="6" #login="ngModel" />
+      <br>
+      <div *ngIf="login.invalid && login.touched">
+          <div *ngIf="login.errors?.['required']">
+            El nombre es obligatorio
+          </div>
+          <div *ngIf="login.errors?.['minlength']">
+            El nombre debe tener {{ login.errors?.['minlength'].requiredLength }} caracteres mínimo. Ahota tiene sólamente {{ login.errors?.['minlength'].actualLength }}
+          </div>
+      </div>
+     </div>
+    <div>
+        <label>Avatar </label>
+        <input name="avatar"  type="file" accept="image/*"/>
+    </div>
+    <button [disabled]="addForm.invalid"  (click)="sendData()">Añadir</button>
+    <button  (click)="addForm.reset()">Reset</button>
+   </form>
+</div>
+
+<hr>
+
+<h2>Listado</h2>
+
+
 <table>
   <thead>
     <tr>

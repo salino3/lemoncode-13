@@ -1,0 +1,14 @@
+
+
+.newMember {
+  margin: 12px;
+}
+
+
+.ng-valid[required], .ng-valid.required  {
+  border: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+  border: 5px solid #a94442;
+}
