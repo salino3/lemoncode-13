@@ -22,13 +22,17 @@ export class SearchComponent implements OnInit {
     //   this.name = 'Maria';
     // }, 3000);
 
-    service.getAll().then((membersResponse) => this.members = membersResponse);
+    service
+      .getAll()
+      .then((membersResponse) => (this.members = membersResponse));
   }
 
   ngOnInit(): void {}
 
   changeName() {
     this.name = 'Francisco';
-    this.clickEnLupa.emit(this.name)
+    this.clickEnLupa.emit(this.name);
   }
+
+
 }

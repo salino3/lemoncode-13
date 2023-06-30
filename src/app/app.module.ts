@@ -7,6 +7,7 @@ import { SearchComponent } from './utils/search/search.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import {FormsModule} from '@angular/forms';
+import { FilterByLoginPipe } from './pipes/filter-by-login.pipe';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     SearchComponent,
     UserListComponent,
-    HighlightDirective
+    HighlightDirective,
+    FilterByLoginPipe
   ],
   imports: [
     BrowserModule,

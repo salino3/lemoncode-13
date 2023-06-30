@@ -21,7 +21,7 @@
             El nombre es obligatorio
           </div>
           <div *ngIf="login.errors?.['minlength']">
-            El nombre debe tener {{ login.errors?.['minlength'].requiredLength }} caracteres mínimo. Ahota tiene sólamente {{ login.errors?.['minlength'].actualLength }}
+            El nombre debe tener {{ login.errors!['minlength'].requiredLength }} caracteres mínimo. Ahota tiene sólamente {{ login.errors?.['minlength'].actualLength }}
           </div>
       </div>
      </div>
@@ -37,7 +37,7 @@
 <hr>
 
 <h2>Listado</h2>
-
+ <input type="text"  class="newMember" #search (keyup)="0" >
 
 <table>
   <thead>
@@ -48,7 +48,7 @@
     </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let member of members">
+      <tr *ngFor="let member of members | filterByLogin:search.value ">
         <td>
           <img [src]="member.avatar_url" alt="avatar" width="80"/>
         </td>
@@ -56,7 +56,8 @@
           <span>{{member.id}}</span>
         </td>
         <td>
-          <span>{{member.login}}</span>
+          <!-- <span> - {{toCapitalLetters(member.login)}}</span> -->
+          <span> - {{member.login | uppercase}}</span>
         </td>
       </tr>
   </tbody>

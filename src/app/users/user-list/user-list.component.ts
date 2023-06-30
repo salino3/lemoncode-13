@@ -16,18 +16,20 @@ export class UserListComponent implements OnInit {
     //* mala practica ->   const service = new MembersService();
     service.getAll().then((membersReponse) => (this.members = membersReponse));
 
-  this.newMember = {
-    id: "",
-    login: "",
-    avatar_url: ""
-  }
-
-
+    this.newMember = {
+      id: '',
+      login: '',
+      avatar_url: '',
+    };
   }
 
   ngOnInit(): void {}
 
   sendData() {
-    console.log(this.newMember)
-  }
+    console.log(this.newMember);
+  };
+
+  toCapitalLetters(text: string): string {
+    return text.toUpperCase();
+  };
 }
