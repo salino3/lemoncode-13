@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
 
     service
       .getAll()
-      .then((membersResponse) => (this.members = membersResponse));
+      .subscribe((membersResponse) => (this.members = membersResponse));
   }
 
   ngOnInit(): void {}

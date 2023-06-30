@@ -4,14 +4,14 @@ import { MembersService } from '../services/members.service';
 
 @Pipe({
   name: 'filterByLogin',
+  // pure: false
 })
 export class FilterByLoginPipe implements PipeTransform {
 
-// constructor() {service: MembersService}
+  // constructor(private authService: AuthService) {}
 
   transform(items: MemberEntity[], value: string): MemberEntity[] {
-    return items.filter((member: MemberEntity) => (
-      member.login.includes(value)
-    ));
+
+    return items.filter((member: MemberEntity) => member.login.includes(value));
   }
 }
